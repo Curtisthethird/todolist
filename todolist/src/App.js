@@ -52,6 +52,7 @@ const handleComplete = (id) =>{
       key = {el.key}
       todo = {el}
       handleDelete = {handleDelete}
+      handleComplete = {handleComplete}
       complete={el.complete}
     />
   ))
