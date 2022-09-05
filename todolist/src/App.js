@@ -21,10 +21,29 @@ function App() {
       text:text,
       id:id,
       key:id,
+      complete: false,
     }
 
     setTodos(() => [newTodo, ...todos]) 
   }
+
+  const handleDelete = (id) =>{
+    const newTodos = todos.filter((el) => el.id != id)
+
+    setTodos(newTodos, ...todos)
+  }
+
+const handleComplete = (id) =>{
+ const updatedTodos = todos.map((el) => {
+    if(el.id == id){
+      el.complete = !el.complete
+    }
+    return el
+  })
+
+  setTodos(updatedTodos)
+}
+
 
   const elements = todos.map((el) => (
     <TodoItem 
@@ -32,6 +51,8 @@ function App() {
       id = {el.id}
       key = {el.key}
       todo = {el}
+      handleDelete = {handleDelete}
+      complete={el.complete}
     />
   ))
 
