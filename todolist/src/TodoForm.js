@@ -1,12 +1,23 @@
 import React from 'react'
+import {useState} from 'react'
 
-const TodoForm = () => {
+const TodoForm = (props) => {
+
+    const [textTodo, setTextTodo] = useState()
+
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+
+        props.addTodo(textTodo)
+
+    }
+
   return (
     <div>
-        <div>
-            <input />
+        <form onSubmit={handleSubmit}>
+            <input onChange={(e) => setTextTodo(e.target.value)}/>
             <button>Add Todo</button>
-        </div>
+        </form>
 
     </div>
   )
