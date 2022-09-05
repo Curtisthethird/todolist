@@ -27,7 +27,12 @@ function App() {
   }
 
   const elements = todos.map((el) => (
-    <TodoItem />
+    <TodoItem 
+      text = {el.text}
+      id = {el.id}
+      key = {el.key}
+      todo = {el}
+    />
   ))
 
 
